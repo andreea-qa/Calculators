@@ -21,10 +21,12 @@ Scenario Outline: Calculate calories in metric system
 @calories
 Scenario: Calculate calories in metric system for a very active person
 	Given I select the Metric system
-	And I enter the age 30
-	And I enter the height 162
-	And I enter the weight 57
-	And I select the gender Female
+	And I enter the following data:
+	| attribute | value |
+	| height    | 162   |
+	| weight    | 57    |
+	| age       | 30    |
+	| gender    | Female |
 	And I select Very Active from the activity dropdown
 	When I press Calculate
 	Then the result should be 2,193 on the screen

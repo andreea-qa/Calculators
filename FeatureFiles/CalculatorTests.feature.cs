@@ -190,6 +190,69 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Calculate calories in metric system with data tables")]
+        [NUnit.Framework.CategoryAttribute("calories")]
+        public virtual void CalculateCaloriesInMetricSystemWithDataTables()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "calories"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system with data tables", null, new string[] {
+                        "calories"});
+#line 33
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 34
+ testRunner.Given("I select the Metric system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table1.AddRow(new string[] {
+                            "height",
+                            "162"});
+                table1.AddRow(new string[] {
+                            "weight",
+                            "57"});
+                table1.AddRow(new string[] {
+                            "age",
+                            "30"});
+                table1.AddRow(new string[] {
+                            "gender",
+                            "Female"});
+#line 35
+ testRunner.And("I enter the following data:", ((string)(null)), table1, "And ");
+#line hidden
+#line 41
+ testRunner.And("I select Very Active from the activity dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 42
+ testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 43
+ testRunner.Then("the result should be 2,193 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

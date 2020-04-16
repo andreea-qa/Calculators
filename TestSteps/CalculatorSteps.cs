@@ -3,6 +3,8 @@ using Calculators.PageObjects;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 using Calculators.TestSteps;
+using Calculators.Data;
+using TechTalk.SpecFlow.Assist;
 
 namespace Calculators
 {
@@ -60,6 +62,15 @@ namespace Calculators
             caloriesCalculatorPage.SelectActivity(activity);
         }
 
+        [Given(@"I enter the following data:")]
+        public void GivenIEnterTheFollowingData(Table table)
+        {
+            var userValues = table.CreateInstance<UserSizeValues>();
+            caloriesCalculatorPage.EnterAge(userValues.Age);
+            caloriesCalculatorPage.EnterHeight(userValues.Height);
+            caloriesCalculatorPage.EnterWeight(userValues.Weight);
+            caloriesCalculatorPage.SelectGender(userValues.Gender);
+        }
 
     }
 }
