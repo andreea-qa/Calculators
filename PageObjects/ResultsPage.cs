@@ -4,7 +4,7 @@ using System;
 
 namespace Calculators.PageObjects
 {
-    class ResultsPage
+    public class ResultsPage
     {
         private ChromeDriver chromeDriver;
         public ResultsPage(ChromeDriver driver) => chromeDriver = driver;

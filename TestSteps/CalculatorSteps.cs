@@ -1,29 +1,17 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow; 
 using Calculators.PageObjects;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
+using Calculators.TestSteps;
 
 namespace Calculators
 {
     [Binding]
-    public class CalculatorSteps
+    public class CalculatorSteps : BaseSteps
     {
-        private ChromeDriver driver;
-        private BasePage basePage;
-        private CaloriesCalculatorPage caloriesCalculatorPage;
-        private ResultsPage resultsPage;
-
-        [BeforeScenario]
-        public void NavigateToApp()
-        {
-            driver = new ChromeDriver(@"C:\Andreea\Automation C#");
-            basePage = new BasePage(driver);
-            caloriesCalculatorPage = new CaloriesCalculatorPage(driver);
-            resultsPage = new ResultsPage(driver);
-            basePage.openPage();
-        }
-
+        
+        private BasePage basePage = new BasePage(driver);
+        
         [Given(@"I select the Metric system")]
         public void GivenISelectTheMetricSystem()
         {
@@ -57,7 +45,7 @@ namespace Calculators
         [When(@"I press Calculate")]
         public void WhenIPressCalculate()
         {
-            basePage.CalculateResult();
+            caloriesCalculatorPage.CalculateResult();
         }
         
         [Then(@"the result should be (.*) on the screen")]
@@ -73,10 +61,5 @@ namespace Calculators
         }
 
 
-        [AfterScenario]
-        public void CloseSession()
-        {
-            driver.Quit();
-        }
     }
 }

@@ -4,7 +4,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Calculators.PageObjects
 {
-    class CaloriesCalculatorPage
+    public class CaloriesCalculatorPage
     {
         private ChromeDriver chromeDriver;
         public CaloriesCalculatorPage(ChromeDriver driver) => chromeDriver = driver;
@@ -15,7 +15,9 @@ namespace Calculators.PageObjects
         private IWebElement WeightKg => chromeDriver.FindElementById("ckg");
         private IWebElement Male => chromeDriver.FindElementById("csex1");
         private IWebElement Female => chromeDriver.FindElementById("csex2");
-        private SelectElement ActivityDropdown => new  SelectElement(chromeDriver.FindElementById("cactivity")); 
+        private SelectElement ActivityDropdown => new  SelectElement(chromeDriver.FindElementById("cactivity"));
+        private IWebElement CalculateBtn => chromeDriver.FindElementByXPath("//input[@value='Calculate']");
+
         public void SelectMetric()
         {
             MetricSystem.Click();
@@ -62,6 +64,12 @@ namespace Calculators.PageObjects
                     break;
             }
             
+        }
+
+
+        public void CalculateResult()
+        {
+            CalculateBtn.Click();
         }
     }
 }

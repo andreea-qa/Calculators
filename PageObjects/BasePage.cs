@@ -9,8 +9,7 @@ namespace Calculators.PageObjects
     {
         protected ChromeDriver chromeDriver;
         public BasePage(ChromeDriver driver) => chromeDriver = driver;
-        private IWebElement CalculateBtn => chromeDriver.FindElementByXPath("//input[@value='Calculate']");
-
+        
         public void Dispose()
         {
             if (chromeDriver != null)
@@ -24,11 +23,6 @@ namespace Calculators.PageObjects
         public void openPage()
         {
             chromeDriver.Navigate().GoToUrl("https://www.calculator.net/calorie-calculator.html");
-        }
-
-        public void CalculateResult()
-        {
-            CalculateBtn.Click();
         }
     }
 }
