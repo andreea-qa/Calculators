@@ -48,5 +48,11 @@ namespace Calculators
             caloriesCalculatorPage.SelectGender(userValues.Gender);
         }
 
+        [Then(@"I should see the (.*) message")]
+        public void ThenIShouldSeeThePleaseProvideAnAgeBetweenAndMessage(string message)
+        {
+            Assert.IsTrue(caloriesCalculatorPage.IsErrorMessageDisplayed(message));
+        }
+
     }
 }

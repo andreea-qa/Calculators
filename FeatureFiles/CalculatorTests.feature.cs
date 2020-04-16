@@ -88,13 +88,13 @@ namespace Calculators.FeatureFiles
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Calculate calories in metric system")]
-        [NUnit.Framework.CategoryAttribute("calories")]
+        [NUnit.Framework.CategoryAttribute("Calories")]
         [NUnit.Framework.TestCaseAttribute("30", "162", "57", "Female", "1,863", null)]
         [NUnit.Framework.TestCaseAttribute("30", "183", "75", "Male", "2,562", null)]
         public virtual void CalculateCaloriesInMetricSystem(string age, string height, string weight, string gender, string expectedResult, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "calories"};
+                    "Calories"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -154,13 +154,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Calculate calories in metric system for a very active person")]
-        [NUnit.Framework.CategoryAttribute("calories")]
+        [NUnit.Framework.CategoryAttribute("Calories")]
         public virtual void CalculateCaloriesInMetricSystemForAVeryActivePerson()
         {
             string[] tagsOfScenario = new string[] {
-                    "calories"};
+                    "Calories"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system for a very active person", null, new string[] {
-                        "calories"});
+                        "Calories"});
 #line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -210,6 +210,77 @@ this.FeatureBackground();
 #line hidden
 #line 36
  testRunner.Then("the result should be 2,193 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify that the correct error message is displayed when mandatory values are miss" +
+            "ing")]
+        [NUnit.Framework.CategoryAttribute("Calories")]
+        [NUnit.Framework.CategoryAttribute("negativeTests")]
+        [NUnit.Framework.TestCaseAttribute("", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "", "75", "Male", "Please provide positive height value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "183", "", "Male", "Please provide positive weight value.", null)]
+        public virtual void VerifyThatTheCorrectErrorMessageIsDisplayedWhenMandatoryValuesAreMissing(string age, string height, string weight, string gender, string error, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Calories",
+                    "negativeTests"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that the correct error message is displayed when mandatory values are miss" +
+                    "ing", null, @__tags);
+#line 39
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table3.AddRow(new string[] {
+                            "height",
+                            string.Format("{0}", height)});
+                table3.AddRow(new string[] {
+                            "weight",
+                            string.Format("{0}", weight)});
+                table3.AddRow(new string[] {
+                            "age",
+                            string.Format("{0}", age)});
+                table3.AddRow(new string[] {
+                            "gender",
+                            string.Format("{0}", gender)});
+#line 40
+ testRunner.Given("I enter the following data:", ((string)(null)), table3, "Given ");
+#line hidden
+#line 46
+ testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 47
+ testRunner.Then(string.Format("I should see the {0} message", error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

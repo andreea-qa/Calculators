@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Calculators.PageObjects
 {
@@ -17,7 +18,7 @@ namespace Calculators.PageObjects
         private IWebElement Female => chromeDriver.FindElementById("csex2");
         private SelectElement ActivityDropdown => new  SelectElement(chromeDriver.FindElementById("cactivity"));
         private IWebElement CalculateBtn => chromeDriver.FindElementByXPath("//input[@value='Calculate']");
-
+        private IWebElement errorArea => chromeDriver.FindElementByXPath("//div[@id='contentout']//div[3]");
         public void SelectMetric()
         {
             MetricSystem.Click();
@@ -64,6 +65,11 @@ namespace Calculators.PageObjects
                     break;
             }
             
+        }
+
+        internal bool? IsErrorMessageDisplayed(string message)
+        {
+            return errorArea.Text.Contains(message);
         }
 
         public void CalculateResult()

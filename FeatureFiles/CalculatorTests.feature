@@ -7,7 +7,7 @@ Background:
 	Given I go to the Calories Calculator
 	And I select the Metric system
 
-@calories
+@Calories
 Scenario Outline: Calculate calories in metric system
 	Given I enter the following data:
 		| attribute | value    |
@@ -23,7 +23,7 @@ Scenario Outline: Calculate calories in metric system
 		| 30  | 162    | 57     | Female | 1,863           |
 		| 30  | 183    | 75     | Male   | 2,562           |
 
-@calories
+@Calories
 Scenario: Calculate calories in metric system for a very active person
 	Given I enter the following data:
 		| attribute | value  |
@@ -34,3 +34,19 @@ Scenario: Calculate calories in metric system for a very active person
 	And I select Very Active from the activity dropdown
 	When I press Calculate
 	Then the result should be 2,193 on the screen
+
+@Calories @negativeTests
+Scenario Outline:  Verify that the correct error message is displayed when mandatory values are missing
+	Given I enter the following data:
+		| attribute | value    |
+		| height    | <height> |
+		| weight    | <weight> |
+		| age       | <age>    |
+		| gender    | <gender> |
+	When I press Calculate
+	Then I should see the <error> message
+	Examples:
+		| age | height | weight | gender | error                                   |
+		|     | 162    | 57     | Female | Please provide an age between 15 and 80.|
+		| 30  |        | 75     | Male   | Please provide positive height value.   |
+		| 30  | 183    |        | Male   | Please provide positive weight value.   |
