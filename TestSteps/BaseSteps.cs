@@ -22,11 +22,17 @@ namespace Calculators.TestSteps
             basePage.openPage();
         }
 
-
         [AfterScenario]
         public void CloseSession()
         {
             driver.Quit();
         }
+
+        [Given(@"I go to the Calories Calculator")]
+        public void GivenIGoToTheCaloriesCalculator()
+        {
+            basePage.navigatToCaloriesCalc();
+        }
+
     }
 }

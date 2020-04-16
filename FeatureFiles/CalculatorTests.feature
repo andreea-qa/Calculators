@@ -4,7 +4,8 @@
 	I want to be told the sum of two numbers
 
 Background:
-	Given I select the Metric system
+	Given I go to the Calories Calculator
+	And I select the Metric system
 
 @calories
 Scenario Outline: Calculate calories in metric system

@@ -79,7 +79,10 @@ namespace Calculators.FeatureFiles
 #line 6
 #line hidden
 #line 7
- testRunner.Given("I select the Metric system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I go to the Calories Calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 8
+ testRunner.And("I select the Metric system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -98,7 +101,7 @@ namespace Calculators.FeatureFiles
             }
             string[] tagsOfScenario = @__tags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system", null, @__tags);
-#line 10
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -136,13 +139,13 @@ this.FeatureBackground();
                 table1.AddRow(new string[] {
                             "gender",
                             string.Format("{0}", gender)});
-#line 11
+#line 12
  testRunner.Given("I enter the following data:", ((string)(null)), table1, "Given ");
 #line hidden
-#line 17
+#line 18
  testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 19
  testRunner.Then(string.Format("the result should be {0} on the screen", expectedResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -158,7 +161,7 @@ this.FeatureBackground();
                     "calories"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system for a very active person", null, new string[] {
                         "calories"});
-#line 26
+#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -196,16 +199,16 @@ this.FeatureBackground();
                 table2.AddRow(new string[] {
                             "gender",
                             "Female"});
-#line 27
+#line 28
  testRunner.Given("I enter the following data:", ((string)(null)), table2, "Given ");
 #line hidden
-#line 33
+#line 34
  testRunner.And("I select Very Active from the activity dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 35
  testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
+#line 36
  testRunner.Then("the result should be 2,193 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

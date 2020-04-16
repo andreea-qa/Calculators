@@ -8,7 +8,9 @@ namespace Calculators.PageObjects
     public class BasePage : IDisposable
     {
         protected ChromeDriver chromeDriver;
+        private const string siteURL = "https://www.calculator.net/";
         public BasePage(ChromeDriver driver) => chromeDriver = driver;
+        private IWebElement calorieslink => chromeDriver.FindElementByLinkText("Calorie Calculator");
         
         public void Dispose()
         {
@@ -22,7 +24,12 @@ namespace Calculators.PageObjects
 
         public void openPage()
         {
-            chromeDriver.Navigate().GoToUrl("https://www.calculator.net/calorie-calculator.html");
+            chromeDriver.Navigate().GoToUrl(siteURL);
+        }
+
+        public void navigatToCaloriesCalc()
+        {
+            calorieslink.Click();
         }
     }
 }
