@@ -19,31 +19,7 @@ namespace Calculators
         {
             caloriesCalculatorPage.SelectMetric();
         }
-        
-        [Given(@"I enter the age (.*)")]
-        public void GivenIEnterTheAge(string p0)
-        {
-            caloriesCalculatorPage.EnterAge(p0);
-        }
-        
-        [Given(@"I enter the height (.*)")]
-        public void GivenIEnterTheHeightb(string p0)
-        {
-            caloriesCalculatorPage.EnterHeight(p0);
-        }
-        
-        [Given(@"I enter the weight (.*)")]
-        public void GivenIEnterTheWeight(string p0)
-        {
-            caloriesCalculatorPage.EnterWeight(p0);
-        }
-        
-        [Given(@"I select the gender (.*)")]
-        public void GivenISelectTheGender(string p0)
-        {
-            caloriesCalculatorPage.SelectGender(p0);
-        }
-        
+           
         [When(@"I press Calculate")]
         public void WhenIPressCalculate()
         {

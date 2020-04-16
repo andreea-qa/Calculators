@@ -3,13 +3,17 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
+Background:
+	Given I select the Metric system
+
 @calories
 Scenario Outline: Calculate calories in metric system
-	Given I select the Metric system
-	And I enter the age <age>
-	And I enter the height <height>
-	And I enter the weight <weight>
-	And I select the gender <gender>
+	Given I enter the following data:
+		| attribute | value    |
+		| height    | <height> |
+		| weight    | <weight> |
+		| age       | <age>    |
+		| gender    | <gender> |
 	When I press Calculate
 	Then the result should be <expected result> on the screen
 
@@ -20,13 +24,12 @@ Scenario Outline: Calculate calories in metric system
 
 @calories
 Scenario: Calculate calories in metric system for a very active person
-	Given I select the Metric system
-	And I enter the following data:
-	| attribute | value |
-	| height    | 162   |
-	| weight    | 57    |
-	| age       | 30    |
-	| gender    | Female |
+	Given I enter the following data:
+		| attribute | value  |
+		| height    | 162    |
+		| weight    | 57     |
+		| age       | 30     |
+		| gender    | Female |
 	And I select Very Active from the activity dropdown
 	When I press Calculate
 	Then the result should be 2,193 on the screen

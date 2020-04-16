@@ -66,7 +66,6 @@ namespace Calculators.PageObjects
             
         }
 
-
         public void CalculateResult()
         {
             CalculateBtn.Click();
