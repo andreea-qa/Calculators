@@ -219,7 +219,7 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Verify that the correct error message is displayed when mandatory values are miss" +
             "ing")]
         [NUnit.Framework.CategoryAttribute("Calories")]
-        [NUnit.Framework.CategoryAttribute("negativeTests")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
         [NUnit.Framework.TestCaseAttribute("", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
         [NUnit.Framework.TestCaseAttribute("30", "", "75", "Male", "Please provide positive height value.", null)]
         [NUnit.Framework.TestCaseAttribute("30", "183", "", "Male", "Please provide positive weight value.", null)]
@@ -227,7 +227,7 @@ this.FeatureBackground();
         {
             string[] @__tags = new string[] {
                     "Calories",
-                    "negativeTests"};
+                    "NegativeTests"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -280,6 +280,85 @@ this.FeatureBackground();
  testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
+ testRunner.Then(string.Format("I should see the {0} message", error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify that the correct error message is displayed when invalid values are entere" +
+            "d")]
+        [NUnit.Framework.CategoryAttribute("Calories")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        [NUnit.Framework.TestCaseAttribute("14", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("81", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("a", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("-1", "162", "57", "Female", "Please provide an age between 15 and 80.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "0", "75", "Male", "Please provide positive height value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "a", "75", "Male", "Please provide positive height value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "-1", "75", "Male", "Please provide positive height value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "182", "0", "Male", "Please provide positive weight value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "180", "a", "Male", "Please provide positive weight value.", null)]
+        [NUnit.Framework.TestCaseAttribute("30", "182", "-1", "Male", "Please provide positive weight value.", null)]
+        public virtual void VerifyThatTheCorrectErrorMessageIsDisplayedWhenInvalidValuesAreEntered(string age, string height, string weight, string gender, string error, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Calories",
+                    "NegativeTests"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that the correct error message is displayed when invalid values are entere" +
+                    "d", null, @__tags);
+#line 56
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table4.AddRow(new string[] {
+                            "height",
+                            string.Format("{0}", height)});
+                table4.AddRow(new string[] {
+                            "weight",
+                            string.Format("{0}", weight)});
+                table4.AddRow(new string[] {
+                            "age",
+                            string.Format("{0}", age)});
+                table4.AddRow(new string[] {
+                            "gender",
+                            string.Format("{0}", gender)});
+#line 57
+ testRunner.Given("I enter the following data:", ((string)(null)), table4, "Given ");
+#line hidden
+#line 63
+ testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 64
  testRunner.Then(string.Format("I should see the {0} message", error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
