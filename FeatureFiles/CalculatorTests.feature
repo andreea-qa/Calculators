@@ -3,7 +3,7 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
-@mytag
+@calories
 Scenario Outline: Calculate calories in metric system
 	Given I select the Metric system
 	And I enter the age <age>
@@ -18,6 +18,7 @@ Scenario Outline: Calculate calories in metric system
 		| 30  | 162    | 57     | Female | 1,863           |
 		| 30  | 183    | 75     | Male   | 2,562           |
 
+@calories
 Scenario: Calculate calories in metric system for a very active person
 	Given I select the Metric system
 	And I enter the age 30
