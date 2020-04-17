@@ -12,3 +12,4 @@ Scenario: Verify the correct minimum protein ammount is calculated
 		| age       | 23       |
 		| gender    | Female   |
 	And I press Calculate
+	When I navigate to Create Your Own tab

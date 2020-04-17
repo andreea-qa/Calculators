@@ -135,6 +135,9 @@ this.FeatureBackground();
 #line 14
  testRunner.And("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 15
+ testRunner.When("I navigate to Create Your Own tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
