@@ -19,7 +19,8 @@ namespace Calculators
         {
             caloriesCalculatorPage.SelectMetric();
         }
-           
+         
+        [Given(@"I press Calculate")]
         [When(@"I press Calculate")]
         public void WhenIPressCalculate()
         {

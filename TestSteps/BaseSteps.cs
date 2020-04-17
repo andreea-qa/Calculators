@@ -34,5 +34,12 @@ namespace Calculators.TestSteps
             basePage.navigatToCaloriesCalc();
         }
 
+        [Given(@"I go to the Macro Calculator")]
+        public void GivenIGoToTheMacroCalculator()
+        {
+            basePage.NavigateToMacroCalc();
+        }
+
+
     }
 }
