@@ -1,44 +1,49 @@
 ﻿using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using Calculators.PageObjects;
+using BoDi;
 
 namespace Calculators.TestSteps
 {
-    public class BaseSteps
+    [Binding]
+    public class WebDriverHooks
     {
-        protected static ChromeDriver driver;
+        private readonly IObjectContainer container;
+
+        public WebDriverHooks(IObjectContainer container)
+        {
+            this.container = container;
+        }
+
         protected BasePage basePage; 
         protected CaloriesCalculatorPage caloriesCalculatorPage;
-        protected ResultsPage resultsPage = new ResultsPage(driver);
+        protected ResultsPage resultsPage;
 
 
         [BeforeScenario]
         public void NavigateToApp()
         {
-            driver = new ChromeDriver(@"C:\Andreea\Automation C#");
+            ChromeDriver driver = new ChromeDriver(@"C:\Andreea\Automation C#");
             basePage = new BasePage(driver);
             caloriesCalculatorPage = new CaloriesCalculatorPage(driver);
             resultsPage = new ResultsPage(driver); 
             basePage.openPage();
+            container.RegisterInstanceAs<ChromeDriver>(driver);
         }
 
         [AfterScenario]
         public void CloseSession()
         {
-            driver.Quit();
+            var driver = container.Resolve<ChromeDriver>();
+
+            if (driver != null)
+            {
+                driver.Quit();
+                driver.Dispose();
+            }
         }
 
-        [Given(@"I go to the Calories Calculator")]
-        public void GivenIGoToTheCaloriesCalculator()
-        {
-            basePage.navigatToCaloriesCalc();
-        }
-
-        [Given(@"I go to the Macro Calculator")]
-        public void GivenIGoToTheMacroCalculator()
-        {
-            basePage.NavigateToMacroCalc();
-        }
+        
 
 
     }
