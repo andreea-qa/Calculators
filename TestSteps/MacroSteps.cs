@@ -44,6 +44,12 @@ namespace Calculators.TestSteps
             Assert.IsTrue(macroPage.IsProteinValue(p0));
         }
 
+        [When(@"I move the protein slider to the Maximum")]
+        public void WhenIMoveTheProteinSliderToTheMaximum()
+        {
+            macroPage.SelectMaximumProtein();
+        }
+
 
     }
 }

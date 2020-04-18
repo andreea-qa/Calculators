@@ -32,5 +32,15 @@ namespace Calculators.PageObjects
         {
             return Int32.Parse(ProteinValue.Text) == p0;
         }
+
+        internal void SelectMaximumProtein()
+        {
+            int proteinValue = Int32.Parse(ProteinSlider.GetAttribute("value"));
+            int proteinMaxValue = Decimal.ToInt32(decimal.Parse(ProteinSlider.GetAttribute("max")));
+            Actions action = new Actions(chromeDriver);
+            //action.ClickAndHold(ProteinSlider);
+            action.DragAndDropToOffset(ProteinSlider, proteinMaxValue, 0).Perform();
+            action.Release().Build();
+        }
     }
 }
