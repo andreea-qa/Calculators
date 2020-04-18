@@ -14,6 +14,7 @@ namespace Calculators.PageObjects
         private IWebElement SearchBar => chromeDriver.FindElementById("calcSearchTerm");
         private IWebElement SearchBtn => chromeDriver.FindElementById("bluebtn");
         private IWebElement MacroLink => chromeDriver.FindElementByLinkText("Macro Calculator");
+        private IWebElement AgeLink => chromeDriver.FindElementByLinkText("Age Calculator");
         public void Dispose()
         {
             if (chromeDriver != null)
@@ -29,7 +30,7 @@ namespace Calculators.PageObjects
             chromeDriver.Navigate().GoToUrl(siteURL);
         }
 
-        public void navigatToCaloriesCalc()
+        public void navigateToCaloriesCalc()
         {
             calorieslink.Click();
         }
@@ -39,6 +40,10 @@ namespace Calculators.PageObjects
             SearchBar.SendKeys("macro");
             SearchBtn.Click();
             MacroLink.Click();
+        }
+        public void NavigateToAgeCalc()
+        {
+            AgeLink.Click();
         }
     }
 }

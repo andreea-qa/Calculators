@@ -28,6 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FeatureFiles\AgeTests.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AgeTests.feature</DependentUpon>
+    </Compile>
     <Compile Update="FeatureFiles\MacroTests.feature.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -36,6 +41,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="FeatureFiles\AgeTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AgeTests.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="FeatureFiles\MacroTests.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MacroTests.feature.cs</LastGenOutput>

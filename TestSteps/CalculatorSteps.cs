@@ -30,7 +30,7 @@ namespace Calculators
         [Given(@"I go to the Calories Calculator")]
         public void GivenIGoToTheCaloriesCalculator()
         {
-            basePage.navigatToCaloriesCalc();
+            basePage.navigateToCaloriesCalc();
         }
 
         [Given(@"I select the Metric system")]
