@@ -13,3 +13,5 @@ Scenario: Verify the correct minimum protein ammount is calculated
 		| gender    | Female   |
 	And I press Calculate
 	When I navigate to Create Your Own tab
+	And I move the protein slider to the Minimum
+	Then the protein value should be 60

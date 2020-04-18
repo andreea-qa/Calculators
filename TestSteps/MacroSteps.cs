@@ -1,4 +1,5 @@
 ﻿using Calculators.PageObjects;
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
@@ -9,7 +10,7 @@ namespace Calculators.TestSteps
     {
         private readonly ChromeDriver driver;
         private readonly BasePage basePage;
-        private readonly ResultsPage resultsPage;
+        private readonly MacroPage macroPage;
         public MacroSteps(ChromeDriver driver)
         {
             // Assign 'driver' to private field or use it to initialize a page object
@@ -17,7 +18,7 @@ namespace Calculators.TestSteps
 
             // Initialize Selenium page object
             this.basePage = new BasePage(driver);
-            this.resultsPage = new ResultsPage(driver);
+            this.macroPage = new MacroPage(driver);
         }
         [Given(@"I go to the Macro Calculator")]
         public void GivenIGoToTheMacroCalculator()
@@ -28,8 +29,21 @@ namespace Calculators.TestSteps
         [When(@"I navigate to Create Your Own tab")]
         public void WhenINavigateToCreateYourOwnTab()
         {
-            resultsPage.NavigateToMakeYourOwn();
+            macroPage.NavigateToMakeYourOwn();
         }
+
+        [When(@"I move the protein slider to the Minimum")]
+        public void WhenIMoveTheProteinSliderToTheMinimum()
+        {
+            macroPage.SelectMinimumProtein();
+        }
+
+        [Then(@"the protein value should be (.*)")]
+        public void ThenTheProteinValueShouldBe(int p0)
+        {
+            Assert.IsTrue(macroPage.IsProteinValue(p0));
+        }
+
 
     }
 }

@@ -31,7 +31,7 @@ namespace Calculators.TestSteps
             container.RegisterInstanceAs<ChromeDriver>(driver);
         }
 
-        [AfterScenario]
+        //[AfterScenario]
         public void CloseSession()
         {
             var driver = container.Resolve<ChromeDriver>();
