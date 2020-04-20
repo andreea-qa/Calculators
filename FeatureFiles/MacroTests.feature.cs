@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Calculators
+namespace Calculators.FeatureFiles
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,23 +20,22 @@ namespace Calculators
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Calculate Calories")]
-    public partial class CalculateCaloriesFeature
+    [NUnit.Framework.DescriptionAttribute("MacroTests")]
+    public partial class MacroTestsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "CalculatorTests.feature"
+#line 1 "MacroTests.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Calculate Calories", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MacroTests", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,21 +73,24 @@ namespace Calculators
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Calculate calories in metric system")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("30", "162", "57", "Female", "1,863", null)]
-        [NUnit.Framework.TestCaseAttribute("30", "183", "75", "Male", "2,562", null)]
-        public virtual void CalculateCaloriesInMetricSystem(string age, string height, string weight, string gender, string expectedResult, string[] exampleTags)
+        public virtual void FeatureBackground()
         {
-            string[] @__tags = new string[] {
-                    "mytag"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system", null, @__tags);
+#line 3
+#line hidden
+#line 4
+ testRunner.Given("I go to the Macro Calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify the correct minimum protein ammount is calculated")]
+        [NUnit.Framework.CategoryAttribute("MacroCalculator")]
+        public virtual void VerifyTheCorrectMinimumProteinAmmountIsCalculated()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "MacroCalculator"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the correct minimum protein ammount is calculated", null, new string[] {
+                        "MacroCalculator"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -109,38 +111,53 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table5.AddRow(new string[] {
+                            "height",
+                            "163"});
+                table5.AddRow(new string[] {
+                            "weight",
+                            "55"});
+                table5.AddRow(new string[] {
+                            "age",
+                            "23"});
+                table5.AddRow(new string[] {
+                            "gender",
+                            "Female"});
 #line 8
- testRunner.Given("I select the Metric system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 9
- testRunner.And(string.Format("I enter the age {0}", age), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
- testRunner.And(string.Format("I enter the height {0}", height), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.And(string.Format("I enter the weight {0}", weight), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
- testRunner.And(string.Format("I select the gender {0}", gender), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 13
- testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I enter the following data:", ((string)(null)), table5, "Given ");
 #line hidden
 #line 14
- testRunner.Then(string.Format("the result should be {0} on the screen", expectedResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+ testRunner.When("I navigate to Create Your Own tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+ testRunner.And("I move the protein slider to the Minimum", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+ testRunner.Then("the protein value should be 60", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Calculate calories in metric system for a very active person")]
-        public virtual void CalculateCaloriesInMetricSystemForAVeryActivePerson()
+        [NUnit.Framework.DescriptionAttribute("Verify the correct maximum protein ammount is calculated")]
+        [NUnit.Framework.CategoryAttribute("MacroCalculator")]
+        public virtual void VerifyTheCorrectMaximumProteinAmmountIsCalculated()
         {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate calories in metric system for a very active person", null, ((string[])(null)));
-#line 21
+            string[] tagsOfScenario = new string[] {
+                    "MacroCalculator"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the correct maximum protein ammount is calculated", null, new string[] {
+                        "MacroCalculator"});
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -160,29 +177,38 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 22
- testRunner.Given("I select the Metric system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 3
+this.FeatureBackground();
 #line hidden
-#line 23
- testRunner.And("I enter the age 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 24
- testRunner.And("I enter the height 162", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
- testRunner.And("I enter the weight 57", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
- testRunner.And("I select the gender Female", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table6.AddRow(new string[] {
+                            "height",
+                            "163"});
+                table6.AddRow(new string[] {
+                            "weight",
+                            "55"});
+                table6.AddRow(new string[] {
+                            "age",
+                            "23"});
+                table6.AddRow(new string[] {
+                            "gender",
+                            "Female"});
+#line 21
+ testRunner.Given("I enter the following data:", ((string)(null)), table6, "Given ");
 #line hidden
 #line 27
- testRunner.And("I select Very Active from the activity dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
- testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I navigate to Create Your Own tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.Then("the result should be 2,193 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I move the protein slider to the Maximum", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 30
+ testRunner.Then("the protein value should be 161", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

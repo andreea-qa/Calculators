@@ -27,4 +27,28 @@
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.86" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="FeatureFiles\AgeTests.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AgeTests.feature</DependentUpon>
+    </Compile>
+    <Compile Update="FeatureFiles\MacroTests.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MacroTests.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="FeatureFiles\AgeTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AgeTests.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="FeatureFiles\MacroTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MacroTests.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+  </ItemGroup>
+
 </Project>

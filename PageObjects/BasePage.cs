@@ -8,9 +8,13 @@ namespace Calculators.PageObjects
     public class BasePage : IDisposable
     {
         protected ChromeDriver chromeDriver;
+        private const string siteURL = "https://www.calculator.net/";
         public BasePage(ChromeDriver driver) => chromeDriver = driver;
-        private IWebElement CalculateBtn => chromeDriver.FindElementByXPath("//input[@value='Calculate']");
-
+        private IWebElement calorieslink => chromeDriver.FindElementByLinkText("Calorie Calculator");
+        private IWebElement SearchBar => chromeDriver.FindElementById("calcSearchTerm");
+        private IWebElement SearchBtn => chromeDriver.FindElementById("bluebtn");
+        private IWebElement MacroLink => chromeDriver.FindElementByLinkText("Macro Calculator");
+        private IWebElement AgeLink => chromeDriver.FindElementByLinkText("Age Calculator");
         public void Dispose()
         {
             if (chromeDriver != null)
@@ -23,12 +27,23 @@ namespace Calculators.PageObjects
 
         public void openPage()
         {
-            chromeDriver.Navigate().GoToUrl("https://www.calculator.net/calorie-calculator.html");
+            chromeDriver.Navigate().GoToUrl(siteURL);
         }
 
-        public void CalculateResult()
+        public void navigateToCaloriesCalc()
         {
-            CalculateBtn.Click();
+            calorieslink.Click();
+        }
+
+        public void NavigateToMacroCalc()
+        {
+            SearchBar.SendKeys("macro");
+            SearchBtn.Click();
+            MacroLink.Click();
+        }
+        public void NavigateToAgeCalc()
+        {
+            AgeLink.Click();
         }
     }
 }
