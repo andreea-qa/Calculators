@@ -37,7 +37,6 @@ namespace Calculators.PageObjects
 
         internal bool IsAgeCorrect(string age)
         {
-            Console.WriteLine(Age.Text);
             return Age.Text.Contains(age);
         }
     }
