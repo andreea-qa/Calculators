@@ -21,4 +21,4 @@ Then the age should be 21 years 10 months 1 days
 Scenario: Verify that the correct message is displayed when the birth date is in the future
 Given I enter the birth date 1 week ahead
 When I press Calculate
-Then I should see the Date of birth needs to be earlier than the age at date. message
+Then I should see the Date of birth needs to be earlier than the age at date. message on the Age form
