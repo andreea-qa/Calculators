@@ -23,7 +23,7 @@ namespace Calculators.TestSteps
         [BeforeScenario]
         public void NavigateToApp()
         {
-            ChromeDriver driver = new ChromeDriver(@"C:\Andreea\Automation C#");
+            ChromeDriver driver = new ChromeDriver();
             basePage = new BasePage(driver);
             caloriesCalculatorPage = new CaloriesCalculatorPage(driver);
             resultsPage = new ResultsPage(driver); 
