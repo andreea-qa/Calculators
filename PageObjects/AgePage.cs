@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Calculators.PageObjects
 {
@@ -15,25 +16,39 @@ namespace Calculators.PageObjects
         private SelectElement CurrentMonth => new SelectElement(chromeDriver.FindElementById("ageat_Month_ID"));
         private IWebElement CurrentYear => chromeDriver.FindElementById("ageat_Year_ID");
         private IWebElement Age => chromeDriver.FindElementByClassName("verybigtext");
-        public void EnterBirthDay(string day, string month, string year)
+        private string getDay (DateTime date)
         {
-            BirthDay.SelectByText(day);
-            BirthMonth.SelectByText(month);
+            return date.Day.ToString();
+        }
+        private string getMonth (DateTime date)
+        {
+            return date.ToString("MMM");
+        }
+
+        private string getYear (DateTime date)
+        {
+            return date.Year.ToString();
+        }
+
+        public void EnterBirthDay(DateTime date)
+        {
+            BirthDay.SelectByText(getDay(date));
+            BirthMonth.SelectByText(getMonth(date));
             string initValue = BirthYear.GetAttribute("value");
-            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + year);
+            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + getYear(date));
         }
 
-        internal void EnterCurrrentDate(string day, string month, string year)
+        internal void EnterCurrrentDate(DateTime date)
         {
-            CurrentDate.SelectByText(day);
-            CurrentMonth.SelectByText(month);
+            CurrentDate.SelectByText(getDay(date));
+            CurrentMonth.SelectByText(getMonth(date));
             string initValue = CurrentYear.GetAttribute("value");
-            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + year);
+            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + getYear(date));
 
         }
 
-        internal bool? IsAgeCorrect(string age)
-        {       
+        internal bool IsAgeCorrect(string age)
+        {
             return Age.Text.Contains(age);
         }
     }

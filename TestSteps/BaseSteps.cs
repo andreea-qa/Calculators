@@ -40,7 +40,7 @@ namespace Calculators.TestSteps
             {
                 driver.Quit();
                 driver.Dispose();
-            }
+            } 
         }
 
         

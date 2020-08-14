@@ -115,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 8
-testRunner.Given("I enter the birth date 3/1/1999 from the dropdowns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I enter the birth date 03/01/1999 from the dropdowns", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
 testRunner.And("the current date is 04/11/2020", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -124,7 +124,7 @@ testRunner.And("the current date is 04/11/2020", ((string)(null)), ((TechTalk.Sp
 testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-testRunner.Then("the age should be 21 years 1 months 10 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("the age should be 21 years 10 months 1 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -172,7 +172,7 @@ testRunner.And("the current date is 04/11/2020", ((string)(null)), ((TechTalk.Sp
 testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
-testRunner.Then("the age should be 21 years 1 months 10 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("the age should be 21 years 10 months 1 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
