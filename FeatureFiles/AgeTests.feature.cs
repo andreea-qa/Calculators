@@ -124,7 +124,7 @@ testRunner.And("the current date is 04/11/2020", ((string)(null)), ((TechTalk.Sp
 testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-testRunner.Then("the age should be 21 years 1 months 10 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("the age should be 21 years 10 months 1 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

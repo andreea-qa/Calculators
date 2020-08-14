@@ -34,13 +34,13 @@ namespace Calculators.TestSteps
         [AfterScenario]
         public void CloseSession()
         {
-            var driver = container.Resolve<ChromeDriver>();
+            /*var driver = container.Resolve<ChromeDriver>();
 
             if (driver != null)
             {
                 driver.Quit();
                 driver.Dispose();
-            }
+            } */
         }
 
         

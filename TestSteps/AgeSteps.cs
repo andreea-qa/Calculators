@@ -29,19 +29,19 @@ namespace Calculators.TestSteps
         [Given(@"I enter the birth date (.*) from the dropdowns")]
         public void GivenIEnterTheBirthDateFromTheDropdowns(DateTime birthday)
         {
-            string day = birthday.Day.ToString();
+            /*string day = birthday.Day.ToString();
             string month = birthday.ToString("MMM");
-            string year = birthday.Year.ToString();
-            agePage.EnterBirthDay(day, month, year);
+            string year = birthday.Year.ToString(); */
+            agePage.EnterBirthDay(birthday);
         }
         
         [Given(@"the current date is (.*)")]
         public void GivenTheCurrentDateIs(DateTime currentDay)
         {
-            string day = currentDay.Day.ToString();
+            /*string day = currentDay.Day.ToString();
             string month = currentDay.ToString("MMM");
-            string year = currentDay.Year.ToString();
-            agePage.EnterCurrrentDate(day, month, year);
+            string year = currentDay.Year.ToString(); */
+            agePage.EnterCurrrentDate(currentDay);
         }
         
         [Given(@"I enter the birth date (.*)/(.*) from the calendar")]

@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Calculators.PageObjects
 {
@@ -15,25 +16,28 @@ namespace Calculators.PageObjects
         private SelectElement CurrentMonth => new SelectElement(chromeDriver.FindElementById("ageat_Month_ID"));
         private IWebElement CurrentYear => chromeDriver.FindElementById("ageat_Year_ID");
         private IWebElement Age => chromeDriver.FindElementByClassName("verybigtext");
-        public void EnterBirthDay(string day, string month, string year)
+
+       
+        public void EnterBirthDay(DateTime date)
         {
-            BirthDay.SelectByText(day);
-            BirthMonth.SelectByText(month);
+            BirthDay.SelectByText(date.Day.ToString());
+            BirthMonth.SelectByText(date.ToString("MMM"));
             string initValue = BirthYear.GetAttribute("value");
-            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + year);
+            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + date.Year.ToString());
         }
 
-        internal void EnterCurrrentDate(string day, string month, string year)
+        internal void EnterCurrrentDate(DateTime date)
         {
-            CurrentDate.SelectByText(day);
-            CurrentMonth.SelectByText(month);
+            CurrentDate.SelectByText(date.Day.ToString());
+            CurrentMonth.SelectByText(date.ToString("MMM"));
             string initValue = CurrentYear.GetAttribute("value");
-            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + year);
+            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + date.Year.ToString());
 
         }
 
-        internal bool? IsAgeCorrect(string age)
-        {       
+        internal bool IsAgeCorrect(string age)
+        {
+            Console.WriteLine(Age.Text);
             return Age.Text.Contains(age);
         }
     }
