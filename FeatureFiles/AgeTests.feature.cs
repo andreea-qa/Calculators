@@ -222,7 +222,8 @@ testRunner.Given("I enter the birth date 1 week ahead", ((string)(null)), ((Tech
 testRunner.When("I press Calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
-testRunner.Then("I should see the Date of birth needs to be earlier than the age at date. message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I should see the Date of birth needs to be earlier than the age at date. message " +
+                        "on the Age form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -16,6 +16,8 @@ namespace Calculators.PageObjects
         private SelectElement CurrentMonth => new SelectElement(chromeDriver.FindElementById("ageat_Month_ID"));
         private IWebElement CurrentYear => chromeDriver.FindElementById("ageat_Year_ID");
         private IWebElement Age => chromeDriver.FindElementByClassName("verybigtext");
+
+        private IWebElement ErrorMessage => chromeDriver.FindElementByXPath("//*[@id=\"content\"]/div[2]/font");
         private string getDay (DateTime date)
         {
             return date.Day.ToString();
@@ -47,9 +49,14 @@ namespace Calculators.PageObjects
 
         }
 
-        internal bool IsAgeCorrect(string age)
+        internal bool? IsAgeCorrect(string age)
         {
             return Age.Text.Contains(age);
+        }
+
+        internal bool? ContainsErrorMessage(string message)
+        {
+            return ErrorMessage.Text.Equals(message);
         }
     }
 }

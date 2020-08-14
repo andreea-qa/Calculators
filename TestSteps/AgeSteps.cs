@@ -51,9 +51,12 @@ namespace Calculators.TestSteps
         }
         
         [Given(@"I enter the birth date (.*) week ahead")]
-        public void GivenIEnterTheBirthDateWeekAhead(int p0)
+        public void GivenIEnterTheBirthDateWeekAhead(int weeks)
         {
-            ScenarioContext.Current.Pending();
+            DateTime date = DateTime.Now;
+            DateTime dateTime = date.AddDays(7 * weeks);
+            date = dateTime;
+            agePage.EnterBirthDay(date);
         }
         
         [Then(@"the age should be (.*)")]
@@ -61,5 +64,12 @@ namespace Calculators.TestSteps
         {
             Assert.IsTrue(agePage.IsAgeCorrect(age));
         }
+
+        [Then(@"I should see the (.*) message on the Age form")]
+        public void ThenIShouldSeeTheMessageOnTheAgeForm(string message)
+        {
+            Assert.IsTrue(agePage.ContainsErrorMessage(message));
+        }
+
     }
 }
