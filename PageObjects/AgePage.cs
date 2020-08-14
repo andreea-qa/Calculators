@@ -16,22 +16,34 @@ namespace Calculators.PageObjects
         private SelectElement CurrentMonth => new SelectElement(chromeDriver.FindElementById("ageat_Month_ID"));
         private IWebElement CurrentYear => chromeDriver.FindElementById("ageat_Year_ID");
         private IWebElement Age => chromeDriver.FindElementByClassName("verybigtext");
+        private string getDay (DateTime date)
+        {
+            return date.Day.ToString();
+        }
+        private string getMonth (DateTime date)
+        {
+            return date.ToString("MMM");
+        }
 
-       
+        private string getYear (DateTime date)
+        {
+            return date.Year.ToString();
+        }
+
         public void EnterBirthDay(DateTime date)
         {
-            BirthDay.SelectByText(date.Day.ToString());
-            BirthMonth.SelectByText(date.ToString("MMM"));
+            BirthDay.SelectByText(getDay(date));
+            BirthMonth.SelectByText(getMonth(date));
             string initValue = BirthYear.GetAttribute("value");
-            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + date.Year.ToString());
+            BirthYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + getYear(date));
         }
 
         internal void EnterCurrrentDate(DateTime date)
         {
-            CurrentDate.SelectByText(date.Day.ToString());
-            CurrentMonth.SelectByText(date.ToString("MMM"));
+            CurrentDate.SelectByText(getDay(date));
+            CurrentMonth.SelectByText(getMonth(date));
             string initValue = CurrentYear.GetAttribute("value");
-            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + date.Year.ToString());
+            CurrentYear.SendKeys(Keys.Backspace + Keys.Backspace + Keys.Backspace + Keys.Backspace + getYear(date));
 
         }
 
